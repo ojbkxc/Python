@@ -585,6 +585,7 @@ print(isinstance(list7,zip))
 
 # 17、用递归的方法求出n的阶乘？4的阶乘结果为?
 
+
 # 18、有如下url地址, 要求实现截取出"?"号后面的参数, 并将参数以"key value"的键值形式保存起来, 并最终通过#get(key)的方式取出对应的value值。
 # url地址如下：
 #http://ip:port/extername/get_account_trade_record.json?#page_size=20&page_index=1&user_id=203317&trade_type=0"
