@@ -1,18 +1,18 @@
-print("Hello, World!");		#这是一个注释		#
-print("Hello\nWorld!");		#这是一个换行		\n
-print("Hello\\World!");	    #这是一个转义符	\
+print("Hello, World!")		#这是一个注释		#
+print("Hello\nWorld!")		#这是一个换行		\n
+print("Hello\\World!")	    #这是一个转义符	\
 #转义字符   特殊的字符   无法”看见“的字符，与语言本身语法有冲突的字符。
 #       \   续航   \n   换行   \'  单引号      \t		表示空4个字符，就是缩进，就是按一下tab键     \r  回车
 print(r"01234\n56789")	        #把字符变成一个原始字符串	r
-print("0123456"[-1]);			#得倒数第一个字符
-print("0123456"[2:5]);	    	#代表步长   ：默认1即是2：5：1
-print("01234567890123"[3:8:2]);	#开始索引结束索引，截取不包括结束索引
-print("01234 6 8 0123"[3::1]);	#默认无穷大或无穷小，方向看步长方向
-print(type(8));         #查看数据类型
+print("0123456"[-1])			#得倒数第一个字符
+print("0123456"[2:5])	    	#代表步长   ：默认1即是2：5：1
+print("01234567890123"[3:8:2])	#开始索引结束索引，截取不包括结束索引
+print("01234 6 8 0123"[3::1])	#默认无穷大或无穷小，方向看步长方向
+print(type(8))         #查看数据类型
 num=8
-print("输出一个浮点型%f%%"%num);	#输出一个%   %%
+print("输出一个浮点型%f%%"%num)	#输出一个%   %%
 xcc="sddfhasi"
-print("输出一个字符串%s"%xcc);
+print("输出一个字符串%s"%xcc)
 print ("我叫 %s 今年 %d 岁!" % ('小明', 10))
 #python中%d表示格式化一个对象为十进制整数。使用后，在需要输出的长字符串中占位置。输出字符串时，可以依据变量的值，自动更新字符串的内容
 #%3d意思是打印结果为3位整数，当整数的位数不够3位时，在整数左侧补空格，所以%3d的打印结果是 14
@@ -62,10 +62,10 @@ print("01234567890123"[-2:3:-1])    #输出方向与步长方向一致
 print("01234567890123"[-1:-7:-2])   #319   步长为2每次跨越2步
 
 #字符串中常见的函数
-str = "abc_df"
-print(str.capitalize())         #把字符串的首字母变成大写
-print(str.title())              #当字符串中有下划线链接时，每段的开头都变为大写
-print(str.upper())              #把字符串全部变为大写
+strl = "abc_df"
+print(strl.capitalize())         #把字符串的首字母变成大写
+print(strl.title())              #当字符串中有下划线链接时，每段的开头都变为大写
+print(strl.upper())              #把字符串全部变为大写
 print("A".lower())              #把字符串的大写字母便变成小写
 print("aaAa".count("a"))        #统计字符串出现的次数
 print("abcdefg".strip("g"))     #删除字符串的开头或结尾
@@ -74,20 +74,20 @@ print("abcdedcba".lstrip("a"))  #左
 print("abcdedcba".rstrip("a"))  #右
 print(str.split("_"))           #对字符串指定切割，以列表形式返回split('分割符','分割次数')
 str1 = 's'
-print(str1.join(str))           #把字符串中的每个元素插入到另一个字符串中间
-print(str.startswith("a"))      #判断字符串是否以什么开头
-print(str.endswith("f"))        #判断字符串以什么结束
-print(str.isalnum())            #判断字符串是否为数字和字母组合
-print(str.isdigit())            #判断字符串是否为全数字
-print(str.isalpha())            #判断字符串是否为全字母
-print(str.istitle())            #判断字符串是否为大写字母开头
-print(str.isupper())            #判断字符串是否为大写字母
-print(str.islower())            #判断字符串是否为小写字母
+print(str1.join(strl))           #把字符串中的每个元素插入到另一个字符串中间
+print(strl.startswith("a"))      #判断字符串是否以什么开头
+print(strl.endswith("f"))        #判断字符串以什么结束
+print(strl.isalnum())            #判断字符串是否为数字和字母组合
+print(strl.isdigit())            #判断字符串是否为全数字
+print(strl.isalpha())            #判断字符串是否为全字母
+print(strl.istitle())            #判断字符串是否为大写字母开头
+print(strl.isupper())            #判断字符串是否为大写字母
+print(strl.islower())            #判断字符串是否为小写字母
 #指定 beg（开始） 和 end（结束） 范围，则检查是否包含在指定范围内，如果包含子字符串返回开始的索引值，否则返回-1
 #str.find(str, beg=0, end=len(string))
-print(str.find("c"))            #查找字符串出现某个字符的位置
-print(str.rfind("c"))           #返回字符串最后一次出现的位置，如果没有匹配项则返回 -1
-print(str.replace('c','z'))     #替换字符串中的内容
+print(strl.find("c"))            #查找字符串出现某个字符的位置
+print(strl.rfind("c"))           #返回字符串最后一次出现的位置，如果没有匹配项则返回 -1
+print(strl.replace('c','z'))     #替换字符串中的内容
 
 #定义列表的方法：
 list1 = [1,2,3,'test']
@@ -377,12 +377,12 @@ for i in range(1,101):
 print(j,'\n',o)
 # 8、请写一段Python代码实现删除一个list = [1, 3, 6, 9, 1, 8]# 里面的重复元素
 # 方法一：
-list = [1, 3, 6, 9, 1, 8]
-print(set(list))
+list6 = [1, 3, 6, 9, 1, 8]
+print(set(list6))
 # 方法二：
-list = [1, 3, 6, 9, 1, 8]
+list6 = [1, 3, 6, 9, 1, 8]
 l1 = []
-for i in list:
+for i in list6:
     if i in l1:
         pass    #表示满足此条件不进行任何操作
     else:
@@ -475,13 +475,13 @@ printme("再次调用同一函数")
 # 练习题
 # 11、冒泡排序
 # 给一组无规律的数据从大到小或从小到大进行排序如：list = [2, 6, 9, 10, 18, 15, 1]
-list = [2, 6, 9, 10, 18, 15, 1]
-for i in range(len(list)):
-    for j in range(i+1,len(list)):
-        if list[i]>list[j]:
-            print(list)                           #验证步骤
-            list[i],list[j] = list[j],list[i]     #实现位置互换
-print(list)
+listl = [2, 6, 9, 10, 18, 15, 1]
+for i in range(len(listl)):
+    for j in range(i+1,len(listl)):
+        if listl[i]>listl[j]:
+            print(listl)                           #验证步骤
+            listl[i],listl[j] = listl[j],listl[i]     #实现位置互换
+print(listl)
 # 12、分析以下数字的规律，0 1 1 2 3 5 8 13 21 34用Python语言编程实现输出
 j=1
 i=0
@@ -524,11 +524,11 @@ while i <=34:
 print()
 # 方法一
 # ab=input('请输入要去除的字符串')
-str='aabbcdbaaabc'
+strl='aabbcdbaaabc'
 ab = 'ab'
-while ab in str:
-    str = str.replace(ab, '')
-print(str)
+while ab in strl:
+    strl = strl.replace(ab, '')
+print(strl)
 # 方法二
 # def del_ab(str):
 #     s = str.replace('ab','')
@@ -573,22 +573,459 @@ print(dic)
 #     f.write('\n写入内容')
 # isinstance()    作用：用来判断数据结构的类型
 # print(type(list7))
-print(isinstance(list7,zip))
+# print(isinstance(list7,zip))
 
 # 15、题目：传入一个json串, 返回一个字典, 字典只取出json最底层的数据, 中间如果有字典格式的字符串也需要进行处
 # 理, 请以下面的数据为例, 请用递归的方法实现。
 # 数据输入json = {"a": "aa", "b": [{"c": "cc", "d": "dd"}, {"f": {"e": "ee"}}]}输出：dic = {'a': 'aa', 'c': 'cc', 'e': 'ee', 'd': 'dd'}
-
-
-
-
+json = {"a": "aa", "b": [{"c": "cc", "d": "dd"}, {"f": {"e": "ee"}}]}
+dic={}
+def read_json(json):
+    for k,v in json.items():
+        if isinstance(v,list):
+            for i in v:
+                read_json(i)
+        elif isinstance(v,dict):
+            read_json(v)
+        else:
+            dic.setdefault(k,v)
+    return dic
+print(read_json(json))
 # 16、水仙花数：一个三位数，其按位立方之和等于该数本身，该数称为水仙花数。求出100 - 1000
 # 之间的水仙花数
 # （其实，水仙花数是“自幂数”中的一种；自幂数：一个n位数，其按位数字的n次方之和，等于该数本身。
-
+def sxh():
+    for i in range(100, 1000):
+        x = i // 100
+        y = i % 100 // 10
+        z = i % 10
+        if i == x**3 + y**3 + z**3:
+            print(i, end=' ')
+sxh()
 # 17、用递归的方法求出n的阶乘？4的阶乘结果为?
-
-
+# n!=1×2×3×...×(n-1)×n。阶乘亦可以递归方式定义：0!=1，n!=(n-1)!×n
+print()
+def jc(n):
+    if n==0 or n==1:
+        return (1)
+    else:
+        return (n*jc(n-1))
+print(jc(4))
 # 18、有如下url地址, 要求实现截取出"?"号后面的参数, 并将参数以"key value"的键值形式保存起来, 并最终通过#get(key)的方式取出对应的value值。
 # url地址如下：
 #http://ip:port/extername/get_account_trade_record.json?#page_size=20&page_index=1&user_id=203317&trade_type=0"
+str1='http://ip:port/extername/get_account_trade_record.json?#page_size=20&page_index=1&user_id=203317&trade_type=0'
+def read_url(str):
+    dic = {}
+    for i in str1.split("?")[1].strip('#').split('&'):
+        dic.setdefault(i.split('=')[0],i.split('=')[1])
+        # c=i.split('=')
+        # dic.setdefault(c[0],c[1])
+    print(dic)
+read_url(str1)
+
+# python模块内可以包含：变量、常量、函数（方法）、类
+# 1.直接导入整个模块
+# import time                       #导入time这个模块
+# print(time.time())
+# 2.导入模块内的单个方法
+# from  time import time            #从time模块内导入time方法
+# print(time())
+# 3.导入模块内的多个方法
+# from time import time,strftime,asctime  #从time模块内导入time、strftime、asctime三个方法
+# #导入多个方法之间，用英文逗号间隔
+# 4.导入模块内的所有方法、变量等
+# from time import *                #从time模块内导入的所有方法、变量等    *代表所有
+# from pythonProject1.py1.xxx.py    #找不到往上层找
+# 5.同时导入多个模块
+# import time,string,re,random      #同时导入多个模块
+
+# python中常见的模块
+# 1.time模块
+import time
+# time模块中常见的方法：
+print(time.time())          #1970到现在经过的秒数   time()
+print(time.ctime())         #固定格式的当前时间  ctime()
+# time.sleep(3)             #休眠-强制等待，使系统进程停止多少时间-单位秒    sleep()
+print(time.asctime())       #转换为asc码显示当前时间  asctime()
+print(time.strftime('%Y-%m-%d-%H-%M-%S'))   #时间格式化  strftime()
+
+# 2.random模块
+# import random
+# 生成随机浮点数、整数、字符串，甚至帮助你随机选择列表序列中的一个元素，打乱一组数据等
+# random模块中常见的方法：
+# random.random() #该方法是生成0-1之间的浮点数，但是能取到0，但是取不到1
+# random.randint(x,y) #该方法生成指定范围内整数，包括开始和结束值
+# python中random模块
+# random.randrange(x,y,step) #生成指定范围内的奇数或偶数，不包括结束值    （开始值，范围，步长）
+# random.randrange(1,10,2)
+# random.randrange(0,10,2)
+
+# random.sample(seq,n) #从序列seq中选择n个随机且独立的元素
+# random.sample(seq,3)    #返回的元素以列表形式存储
+
+# random.choice(list1) #从序列中随机选一个元素生成随机字符
+# print(random.choice(list1))
+# random.shuffle(list1) #洗牌（随机数列）
+# print(list1)
+
+# hashlib.md5() #MD5加密
+# import hashlib
+# md5 = hashlib.md5()#创建一个hashlib模块内的MD5方法的对象，赋值给到一个为md5的变量
+# str1 = '123456'
+# md5.update(str(str1).encode('utf-8'))
+# print(md5.hexdigest())
+
+# import string,random
+# print(string.digits)#输出0-9的数字
+# print(string.ascii_letters)#输出26个大小写字母
+# print(string.ascii_uppercase)#输出26个大写字母
+# print(string.ascii_lowercase)#输出26个小写字母
+
+# 1、使用random模块随机生成手机号码、自己定义手机号码开头的前三位
+# 方法一
+# def h():
+#     str3 = input('请输入号码前三位数：')
+#     import random
+#     for i in range(8):
+#         str3+=str(random.randint(0,9))
+#     print(str3)
+# h()
+# 方法二
+# def h():
+#     import random
+#     str3 = input('请输入号码前三位数：')
+#     str3 += ''.join(random.sample('0123456789',8))
+#     print(str3)
+# h()
+# 方法三
+# str3 = '0123456789'
+# def ra_phone(str3):
+#     a = '123'
+#     import random
+#     for i in range(8):
+#         b =random.choice(str3)
+#         a+=b
+#     print(a)
+# ra_phone(str3)
+# 方法四
+# str3 = '0123456789'
+# def ra_phone(str3):
+#     a = '123'
+#     import random
+#     l = random.sample(str3, 8)
+#     for i in l:
+#         a += i
+#     print(a)
+# ra_phone(str3)
+# 2、用random模块随机生成6位数验证码
+import  string,random
+str2 = string.digits+string.ascii_letters
+# print(str2)
+def verify(n):
+    res = ''
+    for i in range(6):
+        res+=random.choice(n)
+    print(res)
+verify(str2)
+# 3、通过md5加密算法把随机生成的6位数验证码进行加密返回16进制的字符串
+import hashlib
+str1 = string.digits+string.ascii_letters
+def verify(str):
+    res = ''
+    for i in range(6):
+        res += random.choice(str)
+    return
+
+def v_md5(str2):
+    md5 = hashlib.md5()
+    md5.update(str(str2).encode('utf-8'))
+    print(md5.hexdigest())
+v_md5(verify(strl))
+
+# 3.os模块
+# import os
+# os模块提供了多数操作系统的功能接口函数。当os模块被导入后，它会自适
+# 应于不同的操作系统平台，根据不同的平台进行相应的操作，在python编
+# 程时，经常和文件、目录打交道，所以离不了os模块。
+# os模块中常见的方法：
+# os.getcwd()获取当前执行命令所在目录
+# print(os.getcwd())
+# os.path.isfile()判断是否文件
+# path = 'D:\Program Files\python\python.txt'
+# print(os.path.isfile(path1))
+# python中os模块
+# os.path.isdir() #判断是否是目录
+# os.path.exists() #判断文件或目录是否存在
+# os.listdir(dirname) #列出指定目录下的目录或文件
+# path1 = 'D:\Program Files\python\python5'
+# print(os.listdir(path2))
+# os.path.split(name) #分割文件名与目录
+# print(os.path.split(path2))
+# os.path.join(path,name) #连接目录与文件名或目录
+# print(os.path.join(path1,'python.txt'))
+
+# os.mkdir(dir) #创建一个目录
+# os.rename(old,new) #更改目录名称
+# print(path2)
+# os.rename(path1,'python2')
+
+# 4.re模块
+# 实现一个编译查找，一般在日志处理或者文件处理时用的比较多，正则表达式主要用于模式匹配和替换工作。
+# 实现一个编译查找，一般在日志处理或者文件处理时用的比较多
+# 正则表达式主要用于模式匹配和替换工作。
+# 预定义字符集匹配：
+# \d:数字0-9
+# \D:非数字
+# \s:空白字符
+# \n:换行符
+# \r:回车符
+# python中re正则模块
+# re模块数量词匹配：
+# 符号^：表示的匹配字符以什么开头
+# 符号$：表示的匹配字符以什么结尾
+# 符号*：匹配*前面的字符0次或n次
+# eg：ab* 能匹配a 匹配ab 匹配abb
+# 符号+：匹配+前面的字符1次或n次
+# 符号?：匹配?前面的字符0次或1次
+# 符号{m}：匹配前一个字符m次
+# 符号{m,n}：匹配前一个字符m到n次(包括n次)，m或n可以省略，mn都是
+# 正整数
+# re模块相关函数
+# 1、match
+# 从第一个字符开始匹配，如果第一个字符不是要匹配的类型、则匹配失败并报错
+# 注意：如果规则带了'+',则匹配1次或者多次，无'+'只匹配一次
+# 2、search
+# 从第一个字符开始查找、一找到就返回第一个字符串，找到就不往下找，找不到则报错
+# 3、findall
+# 从第一个字符开始查找，找到全部相关匹配为止，找不到返回一个列表[]
+# 4、compile
+# 编译模式生成对象，找到全部相关匹配为止，找不到返回一个列表[]
+
+# Python中常见的模块：
+# time模块
+# random模块
+# hashlib模块
+# os模块
+# re模块
+# string模块
+# xlrd模块
+# json模块
+# sys模块
+
+# 19、存在一个文件, 文件名test.txt
+# 内容如下：
+# 01 success
+# 02 fail
+# 03 fail
+# 04 success
+# ....请使用Python语言编写程序实现统计该文件中
+# 有多少个success
+# 多少个fail的功能？
+# path=r'D:\Program Files\python\test.txt'
+# dic={}
+# def count(path):
+#     o = open(file=path, mode='r', encoding='utf-8')
+#     list1 = o.readlines()
+#     print(list1)
+#     for i in list1:
+#         a=i.strip('\n').split(' ')[1]
+#         print(a)
+#         if dic.__contains__(a):
+#             dic[a]=dic[a]+1
+#         else:
+#             dic[a]=1
+#     print(dic)
+# count(path)
+def read_file1(file1):
+    dic = {}
+    file1 = open(file=r'D:\Program Files\python\test.txt', mode='r', encoding='utf-8')
+    all = file1.readlines()
+    print(all)
+    for i in all:
+        a = i.strip('\n')
+        # print(a)
+        b = a.split(' ')[1]
+        # print(b)
+        if b in dic:
+            dic[b]=dic[b]+1
+        else:
+            dic[b]=1
+    print(dic)
+    print('出现次数"success"的次数为:%d次'%dic['success'])
+    print('出现"fail"次数为:%d次'%dic['fail'])
+read_file1(r'D:\Program Files\python\test.txt')
+
+# 20、一个txt文件中已知数据为：
+# C4D
+# C4D/maya
+# C4D
+# C4D/su
+# C4D/max/AE
+# 统计每个字段出现的次数，比如C4D，maya, 请用最熟悉的语言或者伪代码实现该需求
+def read_file1(file1):
+    dic = {}
+    file1 = open(file=r'D:\Program Files\python\test.txt', mode='r', encoding='utf-8')
+    a = file1.readlines()
+    print(a)
+    for i in a:
+        # print(i)
+        b = i.strip('\n').split('/')
+        # print(b)
+        for j in b:
+            if j in dic:
+                dic[j]=dic[j]+1
+            else:
+                dic[j]=1
+    print(dic)
+read_file1(r'D:\Program Files\python\test.txt')
+path=r'D:\Program Files\python\test.txt'
+def a(path):
+    dic={}
+    o=open(file=path,mode='r',encoding='utf-8')
+# 21、统计一个文件的行数，以e:\\write.txt文件为例(内容自己建)
+path=r'D:\Program Files\python\test.txt'
+def count_len(path):
+    o=open(file=path,mode='r',encoding='utf-8')
+    all=o.readlines()
+    print(len(all))
+count_len(path)
+
+# 22、登录和注册
+# 要求如下：
+# 1、调用本地文件（user.txt)完成登录，如果存在则调用本地文件中用户
+# 和对应的密码进行登录，用户在本地文件中的格式如：admin:123456 xiao:123123
+# 2、登录用户不存在则调注册函数，将注册好的用户写入本地user.txt文件中，写入不能覆盖已有用户。
+# 3、用户名的长度大于等于6位，小于等于8位，用户密码大于等于6位小于等于8位。
+# path=r'D:\Program Files\python\test.txt'
+# def read_txt(path):
+#     dict1 = {}
+#     o=open(file=path,mode='r',encoding='utf-8')
+#     all=o.readlines()
+#     print(all)
+#     a=all[0].split(' ')
+#     for i in a:
+#         b=i.split(':')
+#         dict1.setdefault(b[0],b[1])
+#     return dict1
+# def login():
+#     dict2=read_txt(path)
+#     user_name = input("请输入您的用户名：")
+#     if dict2.__contains__(user_name):
+#         user_pwd = input("请输入您的用户密码：")
+#         if user_pwd == dict2[user_name]:
+#             print("登录成功")
+#         else:
+#             print("密码错误,请重新输入")
+#     else:
+#         print("用户不存在，请注册后登录！")
+#         b()
+# def b():
+#     dict2=read_txt(path)
+#     new_user_name = input("请输入你要注册的用户名：")
+#     if not dict2.__contains__(new_user_name):
+#         if len(new_user_name)>=6 and len(new_user_name)<=8:
+#             new_user_pwd = input("请输入您注册的用户密码：")
+#             new_user_pwd1 = input("请再次输入您注册的用户密码:")
+#             if new_user_pwd == new_user_pwd1:
+#                 if len(new_user_pwd)>=6 and len(new_user_pwd)<=8:
+#                     print("注册成功!")
+#                     o=open(file=path,mode='a',encoding='utf-8')
+#                     all=o.write('\n'+new_user_pwd1+':'+new_user_pwd)
+#                     o.close()
+#                     # write_user(new_user_name,new_user_pwd)
+#                 else:
+#                     print('密码长度非法!')
+#             else:
+#                 print('两次密码输入不一致!')
+#         else:
+#             print('注册的用户名长度非法!')
+#     else:
+#         print('用户名已存在，请重新输入!')
+# login()
+# 23、使用os模块写一个递归调用打印出e:\\home下的所有文件名的绝对路径？
+import os
+path = r'D:\Program Files\python\python'
+def abs_path(path):
+    a = os.listdir(path)
+    for i in a:
+        b = os.path.join(path,i)
+        if os.path.isdir(b):
+            abs_path(b)
+        else:
+            print(b)
+abs_path(path)
+
+# 24、用正则方法实现统计e:\\python文件中指定字符如"python"的行数?（文件中的python字符）
+import re
+path = r'D:\Program Files\python\test.txt'
+def count_py(path):
+    res = 0
+    py_re = re.compile('python')
+    o = open(file=path,mode='r',encoding='utf-8')
+    all = o.readlines()
+    for i in all:
+        a = i.strip('\n')
+        b = py_re.findall(a)
+        if len(b)>0:
+            res+=1
+    print(res)
+count_py(path)
+# 25、使用正则完成市面上手机规则的编写？（手机号：11位）
+import random,re,string
+strl = string.digits
+def ra_phone(strl):
+    while True:             #当条件成立是，无限循环
+        p_re = re.compile('^[1][3456789]\d{9}')
+        res = ''
+        for i in range(11):
+            a = random.choice(strl)
+            res += a
+        b = p_re.findall(res)
+        if len(b) > 0:
+            print(b)
+            break           #当打印出结果后，则停止整个循环
+ra_phone(strl)
+# 26、用正则实现写一段代码统计e:\\log文件中error和warning单词出现的次数分别为几次?
+# 文件内容如下：
+# warningabchelloerror
+# warningerror
+# warning
+# errorwarningwarning
+path = r'D:\Program Files\python\test.txt'
+def count(file):
+    dic = {}
+    o = open(file=file,mode='r',encoding='utf-8')
+    all = o.read()
+    a = all.split('\n')
+    w_re = re.compile('warning')
+    e_re = re.compile('error')
+    for i in a:
+        # print(i)
+        b = w_re.findall(i)
+        c = e_re.findall(i)
+        for j in b:
+            if dic.__contains__(j):
+                dic[j] = dic[j]+1
+            else:
+                dic[j] = 1
+        for k in c:
+            if dic.__contains__(k):
+                dic[k] = dic[k]+1
+            else:
+                dic[k] = 1
+    print(dic)
+count(path)
+# #27、用字符串aabbcdbaaabc，用你熟悉的语言实现去除"ab"子串（用正则表达式来实现）
+import re
+str1 = 'aabbcdbaaabc'
+def del_ab(str):
+    a = str.replace('ab','')
+    ab_re = re.compile('ab')
+    b = ab_re.findall(a)
+    # print()
+    if len(b)>0:
+        del_ab(a)
+    else:
+        print(a)
+del_ab(str1)
