@@ -479,7 +479,7 @@ listl = [2, 6, 9, 10, 18, 15, 1]
 for i in range(len(listl)):
     for j in range(i+1,len(listl)):
         if listl[i]>listl[j]:
-            print(listl)                           #验证步骤
+            # print(listl)                           #验证步骤
             listl[i],listl[j] = listl[j],listl[i]     #实现位置互换
 print(listl)
 # 12、分析以下数字的规律，0 1 1 2 3 5 8 13 21 34用Python语言编程实现输出
@@ -1029,3 +1029,242 @@ def del_ab(str):
     else:
         print(a)
 del_ab(str1)
+
+# python中的类class
+# 类的分类：
+# 新式类     class 类名(object)：
+# 经典类     class 类名：
+class people(object):       #定义一个名为peopie的新式类，且继承了object这个基类
+                            #objeck是所有类的基类也即是类的起源
+    head = 1                #head是类变量
+    def __init__(self,name):     #构造函数，用来初始化整个类：在定义类的时候可以不写，如果不写则python
+        # 调用默认的构造函数
+        self.name = name    #name是实例变量
+
+    def func(self):         #实例化话方法
+        print('打篮球')
+
+# 实例化对象
+p = people('小明')            #为people这个类创建一个名为p的实例化对象
+p.func()                     #用p这个实例化对象调用people类中的func1这个方法
+# 类中的变量和方法
+class Peole:
+    head = 1
+    def __init__(self,name):
+        self.name = name
+
+    def func1(self,name1):
+        print(name,'打篮球')
+
+p = Peole('xiaoming')
+# p.func1('小张')
+# 变量的调用
+# print(Peole(p),head)        #类名的调用类变量，必须传入一个对象
+# print(p.head)               #对象调用类的变量
+# print(Peole(p).name)        #类名调用实际变量
+# print(p.name)               #对象调用实例变量
+
+# 类的三大特性
+# 封装：把函数写在类的内部
+class people:
+    def __init__(self,name):
+        pass
+
+    def __init__(self,name):
+        self.__name = name          #__name 叫做私有变量
+
+    def func2(self):
+        print(self.__name)
+p = people('zhangsan')
+p.func2()
+
+class Func:
+    def __init__(self):
+        pass
+    def func1(self):
+        for i in range(1,10):
+            for j in range(1,i+1):
+                print(j,'x',i,'=',j*i,end=' ')
+            print(' ')
+f = Func()
+f.func1()
+
+# 继承
+class Father(object):
+    def ___init__(self):
+        pass
+    def drink(self):
+        print('喜欢喝酒')
+
+# class Sun(Father):      #定义一个类，同时继承Father这个类
+# 继承构造函数
+# 方法一、
+# def __init__(self):
+#     Father.__init__(self):
+# 方法二、
+# def __init__(self):
+#     super(Father,delf).__init__(self)
+
+#     def car(self):
+#         print('喜欢跑车')
+#     def disco(self):
+#         print('喜欢蹦迪')
+
+# s = Sun()
+# s.car()
+
+#
+# # 多态
+# class Animal(object):
+#     def __init__(self):
+#         pass
+#
+#     def func(self):
+#         print('这是一个动物类')
+#
+# class Dog(Animal):
+#     def __init__(self):
+#         Animal.__init__(seif)
+#
+#     def func(self):
+#         print('这是一只哈士奇')
+#
+#     def eat(self,name):
+#         print(name+'骨头')
+#
+# class Dog_1(Animal):
+#     def __init__(self):
+#         Animal.__init__(self)
+#
+#     def func2(self):
+#         print('这是一只阿拉斯加狗')
+#
+#     def eat(self):
+#         print('吃狗粮')
+
+# selenium      UI自动化
+# 打开浏览器
+# 1.创建一个打开浏览器的驱动对象
+from selenium import webdriver
+driver = webdriver.Chrome()     #实际上打开一个空浏览器
+# 2.打开一个网页地址
+driver.get('http://www.baidu.com')  #通过使用driver对象调用get方法打开百度网页
+# 在同一个浏览器内同时打开两个不同的网页地址
+# w = 'window.open("http://www.baidu.com")'
+# driver.execute_script(w)
+# 在打开的窗口内，重新打开一个新的地址，覆盖原有打开的网页
+# driver.get('http://www.qq.com')
+
+# UI自动化之元素定位
+# 1.id定位
+# ele = driver.find_element_by_id('kw')   #使用driver对象调用find_element_by_id()放定位id值为kw的元素，并赋值变量给ele
+# ele.send_keys('selenium')               #使用定位到的元素变量值调用send_key()方法，在输入框内输入selenium
+# driver.find_element_by_id('kw').send_keys('selenim')
+# 2.name定位
+# 使用driver对象调用find_element_by_name()放定位name元素为wd的元素，
+# 再调用send_key()方法在该元素位置输入selenium
+# driver.find_element_by_name('wd').send_keys('selennium')
+# 3.class定位
+# driver.find_element_by_class_name('s_ipt').send_keys('selenium')
+# 4.xpath定位
+#//*[@id='kw']  //表示相对路径，*号表示任意标签[]内部的内容表示元素定位中可用的标识符
+# driver.find_element_by_xpath('//*[@id="kw"]').send_keys('selenim')      #xpath中的id定位
+# driver.find_element_by_xpath('//*[@name="wd"]').send_keys('selenim')    #xpath中的name定位
+# driver.find_element_by_xpath('//*[@class="s_ipt"]').send_keys('selenim')   #xpath中的class定位
+# driver.find_element_by_xpath('//input[@autocomplete="off"]').send_keys('selenim')
+# driver.find_element_by_xpath('//*[@id="kw" and @name="wd"]').send_keys('selenim')       #组合定位
+# driver.find_element_by_xpath('//*[@id="form"]/span[1]/input[1]').send_keys('selenim')   #父子定位
+
+# 5.css定位
+# driver.find_element_by_css_selector("#kw").send_keys('selenim')     #css中的id定位
+# driver.find_element_by_css_selector('.s_ipt').send_keys('selenim')     #css中的class定位
+# driver.find_element_by_css_selector('[id="kw"][name="wd"]').send_keys('selenim')     #css中的组合定位
+# driver.find_element_by_css_selector('form>span>input').send_keys('selenim')             #父子定位
+
+# 6.link定位
+# driver.find_element_by_link_text('新闻').click()  #链接文本值定位
+
+# 7.partial_link定位：模糊匹配定位
+# driver.find_element_by_partial_link_text('hao').click()
+
+# 8.tag_name定位：标签名定位
+# eles = driver.find_elements_by_tag_name('input')    #根据标签名找出
+# for i in eles:
+#     if i.get_attribute('id')=='kw':
+#         i.send_keys('selenim')
+# 9.执行javaScript脚本语法
+# js = 'document.getElementById("kw").value="selenium"'
+# driver.execute_script(js)
+
+# 页面常见控件
+# 1.输入框和按钮的操作
+# 如：实现论坛的登陆功能？
+from selenium import webdriver
+from time import sleep
+
+driver = webdriver.Chrome()
+driver.get('http://192.168.30.129/bbs')
+sleep(1)    #休眠(强制等待)：作用是使用系统进程强制等待多少秒
+driver.find_element_by_id('ls_username').send_keys('admin')
+sleep(0)
+driver.find_element_by_id('ls_password').send_keys('123456')
+sleep(0)
+driver.find_element_by_class_name('pn').click()
+
+# pyinstaller -F cs.py      #生成exe文件
+
+# 按钮、链接、隐藏框
+# 按钮
+# from selenium import webdriver
+# from time import sleep
+# sleep(1)
+driver.get('http://www.baidu.com')
+# sleep(1)
+# driver.find_element_by_id('kw').send_keys('selenium')
+# sleep(1)
+# driver.find_element_by_id('su').click()
+
+# 链接
+# driver.find_element_by_link_text('hao123').click()
+
+# 隐藏框
+# from selenium.webdriver.common.action_chains import ActionChains
+# ele=driver.find_element_by_name('tj_briicon')
+# ActionChains(driver).move_to_element(ele).perform()
+driver.find_element_by_class_name('pn').click()
+
+# python自动化中的三种等待方式
+# 1.强制等待：就是time模块内的sleep方法
+# sleep(20)
+# 2.隐式等待:selenium库内的webdriver模块内的implicitly_wait()方法。
+# driver.implicitly_wait(20)
+# 3.显式等待：针对页面的单个元素，明确等待某个元素在规定的时间内是否加载完成
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support import expected_conditions as EC
+# from selenium.webdriver.support.wait import WebDriverWait
+# ele=driver.find_element_by_id('kw')
+# WebDriverWait(driver,10,0.5).until(EC.presence_of_element_located((By.ID,"kw")))
+
+# python自动化中的断言方法
+# from selenium import webdriver
+# from time import sleep
+# driver = webdriver.Chrome()
+# driver.get('http://www.baidu.com')
+# 1.获取页面元素的文本值
+# value = driver.find_element_by_id('s-usersetting-top').text
+# print(value)
+# if value =='设置':
+#     print('页面打开成功')
+# else:
+#     print('页面打开失败')
+# 2.获取页面元素的属性值
+# ele = driver.find_element_by_id('s-usersetting-top')
+# value = ele.get_attribute('name')
+# print(value)
+# assert value == 'tj_settingicon'        #asser是python语言自带的断言关键字，当断言成功后，没有任何信息输出
+#                                         #只有断言失败后，才会抛出异常信息
+# 3.获取页面的title
+# title = driver.title
+# # print(title)
+# assert title =='百度一下，你就知道'
+
