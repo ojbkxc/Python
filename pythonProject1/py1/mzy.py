@@ -1268,3 +1268,314 @@ driver.find_element_by_class_name('pn').click()
 # # print(title)
 # assert title =='百度一下，你就知道'
 
+# UI页面的常见操作
+from selenium import webdriver
+from time import sleep
+driver =  webdriver.Chrome()
+driver.get('http://www.baidu.com')
+driver.implicitly_wait(20)      #隐式等待,最大等待时间20秒
+driver.maximize_window()        #窗口最大化
+sleep(2)
+driver.refresh()                #刷新页面
+sleep(1)
+driver.get('http://qq.com')
+sleep(1)
+driver.back()                   #返回上一步
+sleep(1)
+win = "window.open('http://qq.com')"
+driver.execute_script(win)
+sleep(2)
+# driver.close()                  #关闭当前窗口
+sleep(1)
+size = driver.get_window_size()
+print(size)                     #{'width':1552,'height':840}
+sleep(1)
+driver.quit()                   #关闭所有窗口
+# 窗口切换
+driver = webdriver.Chrome()
+driver.get('http://www.baidu.com')
+driver.implicitly_wait(20)
+driver.maximize_window()
+win = 'window.open("http://qq.com")'
+driver.execute_script(win)
+title = driver.title
+print(title)                    #百度一下，你就知道
+# hand = driver.current_window_handle     #获取当前窗口的句柄
+# print(handle)
+handles = driver.window_handles     #获取所有窗口的句柄
+# print(handles)
+driver.switch_to.window(handles[-1])    #切换窗口到最新打开的页面
+title = driver.title
+print(title)
+# driver.find_element_by_xpath('/html/body/header/div[1]/div/div/u1/li[2]/a').click()
+
+# 下拉框的定位操作
+from selenium.webdriver.support.select import Select
+driver = webdriver.Chrome()
+driver.get('https://www.ctrip.com/')
+driver.implicitly_wait(20)
+driver.maximize_window()
+ele = driver.find_element_by_id('J_roomCountList')
+sleep(1)
+Select(ele).select_by_index(1)      #通过下拉框的索引位选择
+sleep(1)
+Select(ele).select_by_value('4')    #通过option标签的value值选择
+sleep(1)
+Select(ele).select_by_visible_text('7间')    #通过option标签的文本值选择
+
+# 需求：完成携程酒店预订页面的所有选项填写
+from selenium import webdriver
+from selenium.webdriver.support.select import Select
+driver = webdriver.Chrome()
+from time import sleep
+# driver.get('https://www.ctrip.com/')
+# driver.implicitly_wait(20)
+# driver.find_element_by_id('HD_CityName').send_keys('上海')       #目的地
+# driver.find_element_by_id('HD_CheckIn').clear()                 # HD_CheckIn    入住时间
+# driver.find_element_by_id('HD_CheckIn').send_keys('2021-7-15')
+# driver.find_element_by_id('HD_CheckOut').clear()                # HD_CheckOnt   退房时间
+# driver.find_element_by_id('HD_CheckOut').send_keys('2021-7-25')
+# fj = driver.find_element_by_id('J_roomCountList')   #房间数
+# Select(fj).select_by_index(2)
+# jb = driver.find_element_by_id('searchHotelLevelSelect')        #酒店级别
+# Select(jb).select_by_index(2)
+# zk = driver.find_element_by_id('J_RoomGuestInfoTxt').click()    #住客数
+# driver.find_element_by_class_name('fl_wrap_close').click()
+# cr = driver.find_element_by_class_name('icon_numplus').click()
+# h = driver.find_element_by_id('J_RoomGuestInfoBtnOK').click()
+# gj = driver.find_element_by_id('HD_TxtKeyword').send_keys('静安区')
+# l = driver.find_element_by_id('hotelSwitch').click()
+# j = driver.find_element_by_id('HD_Btn').click()
+# driver.quit()
+
+# 弹框处理
+# driver.get('http://127.0.0.1:8848/xc/enter.html')
+# 1.alert弹框
+# alert = driver.switch_to.alert    #切换至页面的alert弹框内
+# alert.accept()  #点击确认
+# alert.dismiss()  #点击取消
+
+# 2.确认型弹框
+# driver.get(http://127.0.0.1:8848/xc/enter.html)
+# driver.find_element_by_class_name('alert').click()  #点击按钮，显示弹框
+# alert = driver.switch_to.alert
+# alert.accept()
+# alert.dismiss()
+
+# 3.输入型弹框
+# driver.get(http://127.0.0.1:8848/xc/prompt.html)
+# driver.find_element_by_xpath('/html/body/div[2]/input').click()
+# driver.implicitly_wait(20)
+# alert = driver.switch_to.alert
+# alert.send_keys('djsfj')             #在让款的输入框输入内容
+# alert.accept()
+
+# iframe框处理--京东QQ登陆
+# driver.get('http://www.jd.com')
+# driver.find_element_by_class_name('link-login').click()
+# driver.find_element_by_class_name('QQ-icon').click()
+# driver.switch_to.frame('ptlogin_iframe')
+# driver.find_element_by_class_name('img_out_focus').click()
+
+
+# driver.get('http://mail.163.com')
+# driver.implicitly_wait(20)
+# ele = driver.find_element_by_xpath('//div[@id="loginDiv"]/iframe')
+# driver.switch_to.frame(ele)
+# # driver.switch_to.frame(driver.find_element_by_xpath('//div[@id="loginDiv"]/iframe'))
+# driver.find_element_by_name('email').send_keys('ojbkxc')
+
+# import pyautogui    #模拟键盘鼠标
+# pyautogui.typewrite(message='ojbkxc',interval=0.1)
+# pyautogui.press('tab')
+# pyautogui.typewrite(message='qq1657642978',interval=0.1)
+# pyautogui.press('tab')
+# pyautogui.press('enter')
+# pyautogui.press('enter')
+
+# 页面滑动
+# 方法一：执行windows脚本
+# 向下滑动
+win = 'windows.scrollTo(0,500)'     #括号内的数字0表示页面的顶端，后面表示要滑动的像素位置
+driver.execute_script(win)
+# 向上滑动
+win1 = 'windows.scollTo(0,0)'
+driver.execute_script(win1)
+# 方法二:执行JavaScript脚本
+# 向下滑动
+js = 'var a = ducument.ducumentElement.dcrollTop=2000'
+driver.execute_script(js)
+# 向上滑动
+js = 'var a = ducument.ducumentElement.dcrollTop=0'
+driver.execute_script(js)
+
+# 控制页面缓慢滑动
+
+# import pyautogui
+# pyautogui.keyDown('winleft')
+# pyautogui.keyDown('ctrl')
+# pyautogui.keyDown('c')
+
+# 模拟键盘鼠标操作
+from time import sleep
+from selenium import webdriver
+# from selenium.webdriver.common.keys import Keys
+# driver = webdriver.Chrome()
+# driver.get('http://www.baidu.com')
+# driver.implicitly_wait(20)
+# driver.maximize_window()
+# driver.find_element_by_id('kw').send_keys('123456')
+# sleep(1)
+# driver.find_element_by_id('kw').send_keys(Keys.BACKSPACE)   #输出单个字符
+# sleep(1)
+# driver.find_element_by_id('kw').send_keys(Keys.CONTROL,'a') #全选
+# sleep(1)
+# driver.find_element_by_id('kw').send_keys(Keys.CONTROL,'x') #剪切
+# sleep(1)
+# driver.find_element_by_id('kw').send_keys(Keys.CONTROL,'v') #粘贴
+# sleep(1)
+# driver.find_element_by_id('kw').send_keys(Keys.CONTROL,'c') #复制
+# sleep(1)
+# driver.find_element_by_id('kw').send_keys(Keys.ENTER) #点击enter键
+
+# 把线性脚本封装到类中
+# from selenium.webdriver.common.keys import Keys
+# class Baidu_input:
+#     def __init__(self,url):
+#         self.driver = webdriver.Chrome()
+#         self.driver.get(url)
+#         self.driver.implicitly_wait(20)
+#         self.driver.maximize_window()
+#
+#     def bd_input(self,locator,value):
+#         self.driver.find_element_by_id(locator).send_keys(value)
+#         sleep(1)
+#     def ba_clear(self,locator):
+#         self.driver.find_element_by_id(locator).clear()
+#         sleep(1)
+#
+# if __name__ == '__main__':
+#     b = Baidu_input('http://www.baidu.com')
+#     b.bd_input('kw','selenuim')
+#     b.bd_input("kw",Keys.BACK_SPACE)
+#     b.bd_input("kw",(Keys.CONTROL,'a'))
+#     b.bd_input("kw",(Keys.CONTROL,'x'))
+#     b.bd_input("kw",(Keys.CONTROL,'v'))
+#     b.bd_input("kw",(Keys.CONTROL,'a'))
+#     b.bd_input("kw",(Keys.CONTROL,'c'))
+#     b.bd_clear("kw")
+#     b.bd_input("kw",(Keys.CONTROL,'v'))
+#     b.bd_input("kw",Keys.ENTER)
+
+# 单元测试框架
+# python中可以用来做单元测试的框架：unittest  pytest(复杂)
+# java中用来做单元测试的框架：unittet
+
+import unittest
+class Unit_test(unittest.TestCase):
+
+    @classmethod        #类方法的装饰器
+    def setUpClass(cls) -> None:
+        print('类的方法开始')
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        print('类方法结束')
+
+    def setUp(self) -> None:
+        print('方法开始')
+
+    def tearDown(self) -> None:
+        print('方法结束')
+
+    def test_02(self):
+        print('222222')
+
+    def test_01(self):
+        print('111111')
+
+    def test_03(self):
+        print('333333')
+
+    def test_a(self):
+        print('4444444')
+
+    def test_A(self):
+        print('555555')
+
+if __name__ == '__main__':
+    unittest.main()
+# 总结：
+# 1.unittest单元测试框架内的测试用例名称必须以test开头，否则无法识别，且不会执行
+# 2.unittest单元测试框架执行测试用例的顺序遵循的是ASCII码顺序，即是0-9 A-z a-z
+# 3.unittest单元测试框架内的setup()和teardown()方法在每一条测试用例执行的开始与结束都会被执行一次
+# 4.unittest单元测试框架中类方法开始和类方法结束，只会在所有的测试用例之前和执行结束之后运行一次
+
+from time import sleep,strftime
+from selenium import webdriver
+from HTMLTestRunner import HTMLTestRunner
+import unittest
+class Bbs(unittest.TestCase):
+
+    # 单例模式设计方法
+    # @classmethod
+    # def set_driver(cls):
+    #     cls.driver = driver
+    #
+    # @classmethod
+    # def get_driver(cls):
+    #     return cls.driver
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.driver = webdriver.Chrome()
+        cls.driver.get('http://192.168.30.129/bbs')
+        cls.driver.implicitly_wait(20)
+        cls.driver.maximize_window()
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.driver.quit()
+
+    def test_01_bbs_login(self):
+        self.driver.find_element_by_id('ls_username').send_keys('admin')
+        sleep(1)
+        self.driver.find_element_by_id('ls_password').send_keys('123456')
+        sleep(1)
+        self.driver.find_element_by_class_name('pn').click()
+        sleep(1)
+
+    def test_02_bbs_setting(self):
+        self.driver.find_element_by_link_text('设置').click()
+        sleep(1)
+
+    # if __name__ == '__main__':
+    # # 第一种调用方法（单元测试框架）
+    # unittest.main()
+    # sleep(1)
+    # # 添加一个测试套件
+    # def test_suite():
+    #     suite = unittest.TestSuite()
+    #     suite.addTest(Bbs('test_01_Bbs_login'))   #每次只能添加一条测试用例
+    #     suite.addTests([Bbs('test_01_bbs_login'),Bbs('test_02_bbs_setting')])
+    #     return suite
+    # # 第二种调用方法
+    # runner = unittest.TextTestRunner()
+    # runner.run(test_suite())
+    # 第三种调用方法
+    path = r'D:\Program Files\python\python\pythonProject1\py1'
+    discover = unittest.defaultTestLoader.discover(start_dir = path,pattern = '*in*.py')
+    now = strftime('%Y-%m-%d-%H-%M-%S')
+    filename = path+'\\'+str(now)+'_report.html'
+    f = open(file = filename,mode = 'wb')
+    runner = HTMLTestRunner(stream=f,
+                            # title='BBS论坛UI自动化测试报告',
+                            # description='用例执行情况如下：',
+                            # tester='pythonProject1'
+                            )
+    runner.run(discover)
+    f.close()
+
+    # 调用邮箱脚本
+    from mail import SendMail
+    sendmail=SendMail(send_msg=filename,attachment=filename)      #attachment=附件
+    sendmail.send_mail()
